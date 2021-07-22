@@ -53,7 +53,7 @@ class xo_game(object):
 
 	def __init__(self, board = None, state = 'playing'):
 		# the current/initialized board, should be an 3x3 matrix of strings
-		if board == None:
+		if not board:
 			self.board = self.new_game()
 		else:
 			self.board = board
@@ -157,7 +157,7 @@ b = xo_game()
 
 i = 0
 game_won = False
-while i<20 and not game_won:
+while i<20 and (not game_won):
 	player = X if (i%2 == 0) else O  # staring with 0, so even i is actually X
 	print("\nNow playing: ", player)
 	move = generate_random_move(b.board)
